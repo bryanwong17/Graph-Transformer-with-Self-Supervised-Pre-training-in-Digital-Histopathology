@@ -8,6 +8,7 @@
 **Note:**
 - check arg parser for the configurations
 
+
 2. Clustering (optional)
 
 **How to run:**
@@ -30,6 +31,7 @@
 - if want to use Pytorch Lightning, run feature_extract_lightning.py instead (only MoCoV3 is ready)
 - model path: ../../graph_transformer/runs/(simclr or mocov3)/runs/(name of SSL model)
 
+
 4. Build Graph
 
 **How to run:**
@@ -42,6 +44,7 @@
 - choose between loading SimCLR, SimSiam, and MoCoV3 model in build_graphs.py (simply comment/uncomment it)
 - graph path: ../../graph_transformer/build_graphs/(simclr, mocov3, or simsiam)/(name of graph)
 
+
 5. Training Graph Transformer
 
 **How to run:**
@@ -53,6 +56,7 @@
 - graph path: ../graph_transformer/build_graphs/(simclr, mocov3, or simsiam)/(name of graph)/(simclr_files or simsiam_files)
 - when testing: train=False, test=True, val_set=(test data), resume=(graph VIT model path)
 - result path: ../graph_transformer/results_with_graph/(simclr, mocov3, or simsiam)/(name of result folder)
+
 
 6. Training without graph (VIT)
 
