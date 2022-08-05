@@ -73,8 +73,10 @@ class Trainer(object):
         # 1 batch
         node_feat, labels, adjs, masks = preparefeatureLabel(sample['image'], sample['label'], sample['adj_s'])
         # in one batch
-        #pred,labels,loss = model.forward(node_feat, labels, adjs, masks)
-        pred,labels,loss = model.forward(node_feat, labels)
+        # if using graph
+        pred,labels,loss = model.forward(node_feat, labels, adjs, masks)
+        # if not
+        # pred,labels,loss = model.forward(node_feat, labels)
 
         return pred,labels,loss
 
@@ -97,8 +99,10 @@ class Evaluator(object):
         node_feat, labels, adjs, masks = preparefeatureLabel(sample['image'], sample['label'], sample['adj_s'])
         if not graphcam_flag:
             with torch.no_grad():
-                #pred,labels,loss = model.forward(node_feat, labels, adjs, masks)
-                pred,labels,loss = model.forward(node_feat, labels)
+                # if using graph
+                pred,labels,loss = model.forward(node_feat, labels, adjs, masks)
+                # if not
+                # pred,labels,loss = model.forward(node_feat, labels)
         else:
             torch.set_grad_enabled(True)
             #pred,labels,loss= model.forward(node_feat, labels, adjs, masks, graphcam_flag=graphcam_flag)

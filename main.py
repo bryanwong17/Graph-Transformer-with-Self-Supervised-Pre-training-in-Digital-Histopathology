@@ -261,8 +261,9 @@ def main():
 
                 f_log.write(log)
                 f_log.flush()
+
                 #tensorbaord visualization
-                writer.add_scalars('accuracy', {'train acc': trainer.get_scores(), 'val acc': evaluator.get_scores()}, epoch+1)
+                # writer.add_scalars('accuracy', {'train acc': trainer.get_scores(), 'val acc': evaluator.get_scores()}, epoch+1)
 
                 # early stopping
                 early_stopping((val_loss / total).item(), model)

@@ -8,8 +8,8 @@ class ResNetSimCLR(nn.Module):
     def __init__(self, base_model, out_dim):
         super(ResNetSimCLR, self).__init__()
         # pretrained=False, norm_layer=nn.InstanceNorm2d
-        self.resnet_dict = {"resnet18": models.resnet18(pretrained=False, norm_layer=nn.InstanceNorm2d),
-                            "resnet50": models.resnet50(pretrained=True)}
+        self.resnet_dict = {"resnet18": models.resnet18(weights=None, norm_layer=nn.InstanceNorm2d),
+                            "resnet50": models.resnet50(weights=models.ResNet50_Weights.DEFAULT)}
 
         resnet = self._get_basemodel(base_model)
         num_ftrs = resnet.fc.in_features

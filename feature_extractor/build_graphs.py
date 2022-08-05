@@ -155,16 +155,16 @@ def main():
     # SimCLR
     
     if args.backbone == 'resnet18':
-        resnet = models.resnet18(pretrained=False, norm_layer=nn.InstanceNorm2d)
+        resnet = models.resnet18(weights=None, norm_layer=nn.InstanceNorm2d)
         num_feats = 256
     if args.backbone == 'resnet34':
-        resnet = models.resnet34(pretrained=False, norm_layer=nn.InstanceNorm2d)
+        resnet = models.resnet34(weights=None, norm_layer=nn.InstanceNorm2d)
         num_feats = 512
     if args.backbone == 'resnet50':
-        resnet = models.resnet50(pretrained=True)
+        resnet = models.resnet50(weights=models.ResNet50_Weights.DEFAULT)
         num_feats = 2048
     if args.backbone == 'resnet101':
-        resnet = models.resnet101(pretrained=False, norm_layer=nn.InstanceNorm2d)
+        resnet = models.resnet101(weights=None, norm_layer=nn.InstanceNorm2d)
         num_feats = 2048
     for param in resnet.parameters():
         param.requires_grad = False
